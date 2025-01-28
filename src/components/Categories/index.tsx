@@ -13,12 +13,18 @@ const Categories = ({ categories, selectedCategory, onCategoryPress }: Props) =>
         <FlatList
             horizontal
             showsHorizontalScrollIndicator={false}
+            keyExtractor={item => String(item)}
             data={categories}
-            style={{ marginRight: -32 }}
-            renderItem={({ item }) => {
+            renderItem={({ item, index }) => {
                 const selected = selectedCategory === item
                 return (
-                    <TouchableOpacity onPress={() => onCategoryPress(item)} style={[s.itemContainer, selected ? s.selectedItemContainer : {}]}>
+                    <TouchableOpacity
+                        onPress={() => onCategoryPress(item)}
+                        style={[
+                            s.itemContainer, selected ? s.selectedItemContainer : {},
+                            index === 0 ? { marginLeft: 32 } : {}
+                        ]}
+                    >
                         <Text style={[s.item, selected ? s.selectedItem : {}]}>{item}</Text>
                     </TouchableOpacity>
                 )

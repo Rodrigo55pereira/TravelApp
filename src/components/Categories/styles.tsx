@@ -4,14 +4,14 @@ const s = StyleSheet.create({
     item: {
         fontSize: 12,
         color: 'rgba(0,0,0,0.5)',
-        paddingVertical: 2
+        paddingVertical: 2,
     },
     selectedItem: {
         color: '#000000'
     },
     itemContainer: {
         marginRight: 17,
-        marginVertical: 14
+        marginBottom: 14,
     },
     selectedItemContainer: {
         borderBottomColor: '#4681A3',
