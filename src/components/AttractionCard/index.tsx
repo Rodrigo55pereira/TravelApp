@@ -1,17 +1,18 @@
 import React from "react"
-import { Image, StyleProp, Text, TextStyle, View } from "react-native"
+import { Image, StyleProp, Text, TextStyle, TouchableOpacity, View } from "react-native"
 import s from "./styles"
 
 type Props = {
     imageSrc: string,
     title: string,
     subtitle: string,
-    style: StyleProp<TextStyle>
+    style: StyleProp<TextStyle>,
+    onPress?: () => void
 }
 
-const AttractionCard = ({ imageSrc, title, subtitle, style }: Props) => {
+const AttractionCard = ({ imageSrc, title, subtitle, onPress, style }: Props) => {
     return (
-        <View style={[s.card, style]}>
+        <TouchableOpacity onPress={onPress} style={[s.card, style]}>
             <Image style={s.image} source={{ uri: imageSrc }} />
             
             <Text style={s.title}>{title}</Text>
@@ -20,7 +21,7 @@ const AttractionCard = ({ imageSrc, title, subtitle, style }: Props) => {
                 <Image style={s.icon} source={require('../../assets/location.png')}/>
                 <Text style={s.subtitle}>{subtitle}</Text>
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 

@@ -1,5 +1,6 @@
 import { View, SafeAreaView, FlatList, Text } from 'react-native'
 import React, { useEffect, useState } from 'react'
+import { useNavigation } from '@react-navigation/native'
 
 import Title from '../../components/Title'
 import s from './styles'
@@ -12,7 +13,9 @@ import categories from '../../data/categories.json'
 
 const ALL = 'All'
 
-const Home = () => {
+const Home  = () => {
+
+    const navigation: any = useNavigation()
 
     const [selectedCategory, setSelectedCategory] = useState(ALL)
     const [attraction, setAttraction] = useState<Attraction[]>([])
@@ -27,7 +30,7 @@ const Home = () => {
     }, [selectedCategory])
 
     useEffect(() => {
-        console.log('jsonData :>> ', jsonData)
+        //console.log('jsonData :>> ', jsonData)
         setAttraction(jsonData)
     }, [])
 
@@ -66,6 +69,7 @@ const Home = () => {
                         style={index % 2 === 0
                             ? { marginRight: 12, marginLeft: 32 }
                             : { marginRight: 32 }}
+                        onPress={() => navigation.navigate('AttractionDetails', { item })}
                         imageSrc={item.images.length ? item.images[0] : ''}
                         title={item.name}
                         subtitle={item.city}
