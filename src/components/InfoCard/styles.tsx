@@ -13,6 +13,8 @@ const s = StyleSheet.create({
     title: {
         fontSize: 12,
         color: '#000',
+        flexWrap: 'wrap',
+        maxWidth: '90%',
         marginHorizontal: 8
     },
 })

@@ -75,7 +75,7 @@ const AttractionDetails = () => {
                     <Title style={s.title} text={item?.name}/>
                     <Text style={s.city}>{item?.city}</Text>
                 </View>
-                    <Title style={s.title} text={item?.entry_price} />
+                    <Title style={s.price} text={item?.entry_price} />
             </View>
 
             <InfoCard text={item?.address} icon={require('../../assets/location_circle.png')} />

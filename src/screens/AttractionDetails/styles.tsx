@@ -1,7 +1,7 @@
 import { StyleSheet, Dimensions } from "react-native"
 import { ContinousBaseGesture } from "react-native-gesture-handler/lib/typescript/handlers/gestures/gesture"
 
-const { height } = Dimensions.get('window')
+const { height, width } = Dimensions.get('window')
 
 const s = StyleSheet.create({
     container: {
@@ -64,12 +64,18 @@ const s = StyleSheet.create({
     },
     title: {
         color: '#000',
+        flexWrap: 'wrap',
+        maxWidth: width * 0.7,
+        flexShrink: 1
     },
     city: {
         fontSize: 20,
         color: '#000',
         fontWeight: '400',
         marginTop: 8,
+    },
+    price: {
+        color: '#000',
     }
 })
 
